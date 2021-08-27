@@ -17,6 +17,8 @@
 		0C89CF3D26D6FA77007EB8CB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C89CF3C26D6FA77007EB8CB /* HomeViewController.swift */; };
 		0C89CF4326D709C4007EB8CB /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C89CF4226D709C4007EB8CB /* MarvelModel.swift */; };
 		0C89CF4526D70B7E007EB8CB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C89CF4426D70B7E007EB8CB /* HomeTableViewCell.swift */; };
+		0C9B57D426D99C6B00CC4A3D /* CharactersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B57D326D99C6B00CC4A3D /* CharactersRequest.swift */; };
+		0C9B57D626D9A29B00CC4A3D /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B57D526D9A29B00CC4A3D /* CharactersResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		0C89CF3C26D6FA77007EB8CB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0C89CF4226D709C4007EB8CB /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
 		0C89CF4426D70B7E007EB8CB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		0C9B57D326D99C6B00CC4A3D /* CharactersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRequest.swift; sourceTree = "<group>"; };
+		0C9B57D526D9A29B00CC4A3D /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 		0C89CF3F26D707A7007EB8CB /* Resquest */ = {
 			isa = PBXGroup;
 			children = (
+				0C9B57D326D99C6B00CC4A3D /* CharactersRequest.swift */,
 			);
 			path = Resquest;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 		0C89CF4026D707B4007EB8CB /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				0C9B57D526D9A29B00CC4A3D /* CharactersResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -313,7 +319,9 @@
 			files = (
 				0C89CF4326D709C4007EB8CB /* MarvelModel.swift in Sources */,
 				0C89CF3D26D6FA77007EB8CB /* HomeViewController.swift in Sources */,
+				0C9B57D626D9A29B00CC4A3D /* CharactersResponse.swift in Sources */,
 				0C89CF4526D70B7E007EB8CB /* HomeTableViewCell.swift in Sources */,
+				0C9B57D426D99C6B00CC4A3D /* CharactersRequest.swift in Sources */,
 				0C89CF1226D6F6D4007EB8CB /* MarvelCharacters.xcdatamodeld in Sources */,
 				0C89CF0826D6F6D4007EB8CB /* AppDelegate.swift in Sources */,
 				0C89CF0A26D6F6D4007EB8CB /* SceneDelegate.swift in Sources */,
