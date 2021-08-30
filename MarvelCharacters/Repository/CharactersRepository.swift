@@ -7,23 +7,47 @@
 
 import Foundation
 import Combine
+import ObjectMapper
 
-class CharactersRepository {
+typealias CharactersResponseCompletionResult = ((Result<CharactersResponse, NSError>) -> Void)
+typealias CharactersResponseResult = Result<CharactersResponse, NSError>
+
+protocol CharactersRepositoryProtocol {
+    func getCharacters(completion: @escaping CharactersResponseCompletionResult)
+}
+
+class CharactersRepository: CharactersRepositoryProtocol {
     
     let request = CharactersRequest()
     
     
-    func getCharacters() {
+    func getCharacters(completion: @escaping CharactersResponseCompletionResult) {
         
         let urlRequest = request.url
         let session = URLSession(configuration: .default)
         
         let task = session.dataTask(with: URL(string: urlRequest)!, completionHandler: { (data, response, error) in
             
-            guard let APIData = data else {return}
-            if let jsonObjeto = self.parseData(rawData: APIData){
-                
+            if let error = error {
+                completion(.failure(NSError(domain: "", code: 000, userInfo: ["message": error.localizedDescription])))
+                return
             }
+            
+            guard let APIData = data else {
+                completion(.failure(NSError(domain: "", code: 000, userInfo: ["message": "Can't get data"])))
+                return
+            }
+            
+            guard let jsonParse = self.parseData(rawData: APIData) else {
+                completion(.failure(NSError(domain: "", code: 000, userInfo: ["message": "Can't parse json"])))
+                return
+            }
+            
+            guard let responseObject = Mapper<CharactersResponse>().map(JSON: jsonParse) else {
+                return
+            }
+            
+            completion(.success(responseObject))
         })
         
         task.resume()

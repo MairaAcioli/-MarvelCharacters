@@ -7,7 +7,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol HomeViewControllerProtocol {
+    func presentCharacters(model: CharactersResponseModel)
+}
+
+class HomeViewController: UIViewController, HomeViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
     var charactersListTableView = UITableView()
     
@@ -15,18 +19,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var arrayTeste = [MarvelModel(name: "teste1", image: UIImage(named: "teste1")!), MarvelModel(name: "teste1", image: UIImage(named: "teste1")!), MarvelModel(name: "teste2", image: UIImage(named: "teste2")!), MarvelModel(name: "teste2", image: UIImage(named: "teste2")!)]
         
-        
+    let cell = HomeTableViewCell.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
        
-        repository.getCharacters()
-//        testeRequest.getCharacters { [weak self] array in
-//            if let arrayStatement = array {
+//        repository.getCharacters()
+//        repository.getCharacters { [weak self] array in
+//            if array != nil {
 //
 //            }
 //        }
-        
         
         setupNavigationBar()
         setupConstraints()
@@ -40,6 +44,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.charactersListTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
      
     }
+    
+    func presentCharacters(model: CharactersResponseModel) {
+        self.cell.nameLabel.text = model.copyright
+    }
+    
     
     func setupConstraints() {
 
@@ -58,7 +67,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return self.arrayTeste.count
         
     }
@@ -68,7 +77,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         
         cell.imageCharacters.image = self.arrayTeste[indexPath.row].image
-        cell.nameLabel.text = self.arrayTeste[indexPath.row].name
+        
+        cell.nameLabel.text = "äbacaxi"
         
         return cell
     }

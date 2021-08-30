@@ -17,3 +17,5 @@ target 'MarvelCharacters' do
   end
 
 end
+
+pod 'ObjectMapper', '~> 3.5'

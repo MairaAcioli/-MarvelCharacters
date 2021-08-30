@@ -7,6 +7,20 @@
 
 import Foundation
 
-class HomePresenter {
+protocol HomePresenterProtocol {
+    func presentSucess(model: CharactersResponseModel)
+}
+
+class HomePresenter: HomePresenterProtocol {
+    
+    var viewController: HomeViewControllerProtocol?
+    init(viewController: HomeViewControllerProtocol) {
+        self.viewController = viewController
+    }
+    
+    func presentSucess(model: CharactersResponseModel) {
+        self.viewController?.presentCharacters(model: model)
+    }
+    
     
 }
